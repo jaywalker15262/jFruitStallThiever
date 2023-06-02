@@ -3,10 +3,8 @@ package com.jay.fruitstallthiever.branch
 import com.jay.fruitstallthiever.Constants
 import com.jay.fruitstallthiever.FruitStallThiever
 import com.jay.fruitstallthiever.Variables
-import com.jay.fruitstallthiever.leaf.traveling.TravelToBakeryStall
-import com.jay.fruitstallthiever.leaf.traveling.TravelToFruitStall
-import com.jay.fruitstallthiever.leaf.traveling.TravelToLumby
-import com.jay.fruitstallthiever.leaf.traveling.TravelToPlough
+import com.jay.fruitstallthiever.leaf.traveling.*
+import org.powbot.api.rt4.Game
 import org.powbot.api.rt4.Players
 import org.powbot.api.rt4.Skills
 import org.powbot.api.rt4.Varpbits
@@ -44,14 +42,24 @@ class AtThievingArea(script: FruitStallThiever) : Branch<FruitStallThiever>(scri
 
 class TravelCheck(script: FruitStallThiever) : Branch<FruitStallThiever>(script, "Travel to hosidius?") {
     override val successComponent: TreeComponent<FruitStallThiever> = TravelCheckTwo(script)
-    override val failedComponent: TreeComponent<FruitStallThiever> = TravelCheckThree(script)
+    override val failedComponent: TreeComponent<FruitStallThiever> = TravelCheckFour(script)
 
     override fun validate(): Boolean {
         return Variables.thievingArea == 0
     }
 }
 
-class TravelCheckTwo(script: FruitStallThiever) : Branch<FruitStallThiever>(script, "Travel to fruit stalls?") {
+class TravelCheckTwo(script: FruitStallThiever) : Branch<FruitStallThiever>(script, "Travel to kourend?") {
+    override val successComponent: TreeComponent<FruitStallThiever> = TravelToKourend(script)
+    override val failedComponent: TreeComponent<FruitStallThiever> = TravelCheckThree(script)
+
+    override fun validate(): Boolean {
+        return Game.floor() == 1 || Players.local().distanceTo(Constants.TILE_HOSIDIUS).toInt() > 100
+            || Constants.AREA_PLOUGHING.contains(Players.local())
+    }
+}
+
+class TravelCheckThree(script: FruitStallThiever) : Branch<FruitStallThiever>(script, "Travel to fruit stalls?") {
     override val successComponent: TreeComponent<FruitStallThiever> = TravelToFruitStall(script)
     override val failedComponent: TreeComponent<FruitStallThiever> = TravelToPlough(script)
 
@@ -60,7 +68,7 @@ class TravelCheckTwo(script: FruitStallThiever) : Branch<FruitStallThiever>(scri
     }
 }
 
-class TravelCheckThree(script: FruitStallThiever) : Branch<FruitStallThiever>(script, "Travel to ardounge?") {
+class TravelCheckFour(script: FruitStallThiever) : Branch<FruitStallThiever>(script, "Travel to ardounge?") {
     override val successComponent: TreeComponent<FruitStallThiever> = TravelToBakeryStall(script)
     override val failedComponent: TreeComponent<FruitStallThiever> = TravelToLumby(script)
 

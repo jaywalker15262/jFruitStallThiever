@@ -6,9 +6,6 @@ import org.powbot.api.rt4.TilePath
 import org.powbot.api.rt4.World
 
 object Constants {
-    val VEOS_DIALOGUE_1 = "I am Veos and I've just arrived in Port Sarim from the distant Kingdom of Great Kourend."
-    val VEOS_DIALOGUE_2 = "Certainly! I hope you don't get seasick, it's a long voyage."
-
     val TILE_VEOS = Tile(3054, 3246, 0)
     val TILE_ARDOUNGE = Tile(2669, 3310, 0)
     val TILE_HOSIDIUS = Tile(1798, 3605, 0)
