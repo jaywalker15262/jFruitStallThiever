@@ -1,7 +1,6 @@
 package com.jay.fruitstallthiever
 
 import org.powbot.api.Random
-import org.powbot.api.rt4.Item
 import org.powbot.api.rt4.Npc
 
 object Variables {
@@ -13,8 +12,6 @@ object Variables {
     var lastKnownThievingXp = 0
     var timeSinceLastThievingXp: Long = 0
     var timeSinceLastThieft: Long = 0
-
-    lateinit var coinPouch: Item
 
     var ardoungeTileMatrix = Constants.TILE_ARDOUNGE.matrix()
     var hosidiusTileMatrix = Constants.TILE_HOSIDIUS.matrix()

@@ -60,8 +60,8 @@ class CoinPouchCheck(script: FruitStallThiever) : Branch<FruitStallThiever>(scri
     override val failedComponent: TreeComponent<FruitStallThiever> = Pickpocket(script)
 
     override fun validate(): Boolean {
-        Variables.coinPouch = Inventory.stream().name("Coin pouch").first()
-        return Variables.coinPouch.valid() && Variables.coinPouch.stackSize() == 28
+        val coinPouch = Inventory.stream().name("Coin pouch").first()
+        return coinPouch.valid() && coinPouch.stackSize() == 28
     }
 }
 
