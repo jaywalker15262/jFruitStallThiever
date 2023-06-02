@@ -40,7 +40,9 @@ class StallCheck(script: FruitStallThiever) : Branch<FruitStallThiever>(script, 
     override val failedComponent: TreeComponent<FruitStallThiever> = WorldHopCheck(script)
 
     override fun validate(): Boolean {
-        return Variables.invItemCount >= Variables.dropAtcount
+        return Inventory.stream().name("Cake", "Bread", "Chocolate slice", "Cooking apple", "Banana", "Strawberry",
+            "Jangerberries", "Lemon", "Redberries", "Pineapple", "Lime", "Strange fruit", "Golovanova fruit top",
+            "Papaya fruit").count() >= Variables.dropAtcount
     }
 }
 

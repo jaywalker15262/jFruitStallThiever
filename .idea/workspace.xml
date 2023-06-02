@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5682281-84c5-41f3-9832-9c349dbc3975" name="Changes" comment="Splitting traveling into more leafs and branches as well as better handling for chatting.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="e5682281-84c5-41f3-9832-9c349dbc3975" name="Changes" comment="Stream for reachable and dont continue if the npc is not in viewport.">
+      <change beforePath="$PROJECT_DIR$/src/main/kotlin/leaf/thieve/ThieveStall.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/leaf/thieve/ThieveStall.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,8 +95,31 @@
       <option name="presentableId" value="LOCAL−00006" />
       <updated>1685721373818</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL−00007" summary="Stream for reachable and dont continue if the npc is not in viewport.">
+      <created>1685721986636</created>
+      <option name="number" value="LOCAL−00007" />
+      <option name="presentableId" value="LOCAL−00007" />
+      <updated>1685721986636</updated>
+    </task>
+    <task id="LOCAL−00008" summary="Stream for reachable and dont continue if the npc is not in viewport.">
+      <created>1685722015310</created>
+      <option name="number" value="LOCAL−00008" />
+      <option name="presentableId" value="LOCAL−00008" />
+      <updated>1685722015310</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial upload." />
@@ -104,6 +127,7 @@
     <MESSAGE value="Removing redundant caching." />
     <MESSAGE value="Replace null assignment with Npc.Nil instead." />
     <MESSAGE value="Splitting traveling into more leafs and branches as well as better handling for chatting." />
-    <option name="LAST_COMMIT_MESSAGE" value="Splitting traveling into more leafs and branches as well as better handling for chatting." />
+    <MESSAGE value="Stream for reachable and dont continue if the npc is not in viewport." />
+    <option name="LAST_COMMIT_MESSAGE" value="Stream for reachable and dont continue if the npc is not in viewport." />
   </component>
 </project>

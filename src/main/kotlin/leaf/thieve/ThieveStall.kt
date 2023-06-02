@@ -33,7 +33,6 @@ class ThieveStall(script: FruitStallThiever) : Leaf<FruitStallThiever>(script, "
             return
         }
 
-        Variables.invItemCount++
         Variables.timeSinceLastThieft = ScriptManager.getRuntime(true) + 3000
     }
 }

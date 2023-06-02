@@ -8,7 +8,6 @@ object Variables {
     var stopAfterMinutes = 0
     var thievingArea = 0
     var dropAtcount = Random.nextGaussian(1, 4, 4, 1.0)
-    var invItemCount = 0
     var lastKnownThievingXp = 0
     var timeSinceLastThievingXp: Long = 0
     var timeSinceLastThieft: Long = 0

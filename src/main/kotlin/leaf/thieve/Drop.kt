@@ -13,7 +13,6 @@ class Drop(script: FruitStallThiever) : Leaf<FruitStallThiever>(script, "Droppin
             "Papaya fruit").toList()
         if (itemsToDrop.isEmpty()) {
             script.info("We were unable to find any items to drop.")
-            Variables.invItemCount = 0
             return
         }
 
@@ -22,7 +21,6 @@ class Drop(script: FruitStallThiever) : Leaf<FruitStallThiever>(script, "Droppin
             return
         }
 
-        Variables.invItemCount = 0
         Variables.dropAtcount = Random.nextGaussian(1, 4, 4, 1.0)
     }
 }
