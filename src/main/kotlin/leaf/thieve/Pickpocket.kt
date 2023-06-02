@@ -4,7 +4,6 @@ import com.jay.fruitstallthiever.FruitStallThiever
 import com.jay.fruitstallthiever.Variables
 import org.powbot.api.Condition
 import org.powbot.api.rt4.Camera
-import org.powbot.api.rt4.Inventory
 import org.powbot.api.rt4.Npcs
 import org.powbot.api.rt4.Skills
 import org.powbot.api.rt4.walking.model.Skill
@@ -18,16 +17,8 @@ class Pickpocket(script: FruitStallThiever) : Leaf<FruitStallThiever>(script, "P
             return
         }
 
-        val coinPouch = Inventory.stream().name("Coin pouch").first()
-        if (coinPouch.valid() && coinPouch.stackSize() == 28
-            && (!coinPouch.interact("Open-all") || !Condition.wait({ !coinPouch.valid() }, 50, 60))) {
-            script.info("Failed to drop the coin pouches.")
-            return
-        }
-
         val pickpocketTarget = Npcs.stream().name("Man", "Woman").within(20).nearest()
             .filtered { !it.inCombat() }.first()
-
         if (!pickpocketTarget.valid()) {
             script.info("Failed to find any target to pickpocket.")
             return
@@ -49,5 +40,12 @@ class Pickpocket(script: FruitStallThiever) : Leaf<FruitStallThiever>(script, "P
         }
 
         Variables.timeSinceLastThievingXp = ScriptManager.getRuntime(true) + 1200     // Failsafe
+    }
+}
+
+class OpeningCoinPouch(script: FruitStallThiever) : Leaf<FruitStallThiever>(script, "Opening Coin Pouches") {
+    override fun execute() {
+        if (!Variables.coinPouch.interact("Open-all") || !Condition.wait({ !Variables.coinPouch.valid() }, 50, 60))
+            script.info("Failed to drop the coin pouches.")
     }
 }

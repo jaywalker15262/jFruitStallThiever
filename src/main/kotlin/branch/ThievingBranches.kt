@@ -6,8 +6,10 @@ import com.jay.fruitstallthiever.leaf.Chill
 import com.jay.fruitstallthiever.leaf.WorldHop
 import com.jay.fruitstallthiever.leaf.favour.hosidius.Plough
 import com.jay.fruitstallthiever.leaf.thieve.Drop
+import com.jay.fruitstallthiever.leaf.thieve.OpeningCoinPouch
 import com.jay.fruitstallthiever.leaf.thieve.ThieveStall
 import com.jay.fruitstallthiever.leaf.thieve.Pickpocket
+import org.powbot.api.rt4.Inventory
 import org.powbot.api.rt4.Players
 import org.powbot.api.rt4.Skills
 import org.powbot.api.rt4.walking.model.Skill
@@ -44,12 +46,22 @@ class StallCheck(script: FruitStallThiever) : Branch<FruitStallThiever>(script, 
 
 class PickpocketCheck(script: FruitStallThiever) : Branch<FruitStallThiever>(script, "Already pickpocketing?") {
     override val successComponent: TreeComponent<FruitStallThiever> = Chill(script)
-    override val failedComponent: TreeComponent<FruitStallThiever> = Pickpocket(script)
+    override val failedComponent: TreeComponent<FruitStallThiever> = CoinPouchCheck(script)
 
     override fun validate(): Boolean {
         return Variables.lastKnownThievingXp == Skills.experience(Skill.Thieving)
                 && (Variables.timeSinceLastThievingXp > ScriptManager.getRuntime(true)
                 || Players.local().animation() == 881)
+    }
+}
+
+class CoinPouchCheck(script: FruitStallThiever) : Branch<FruitStallThiever>(script, "Open coing pouch?") {
+    override val successComponent: TreeComponent<FruitStallThiever> = OpeningCoinPouch(script)
+    override val failedComponent: TreeComponent<FruitStallThiever> = Pickpocket(script)
+
+    override fun validate(): Boolean {
+        Variables.coinPouch = Inventory.stream().name("Coin pouch").first()
+        return Variables.coinPouch.valid() && Variables.coinPouch.stackSize() == 28
     }
 }
 
