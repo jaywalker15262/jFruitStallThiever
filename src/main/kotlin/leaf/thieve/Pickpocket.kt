@@ -14,11 +14,11 @@ import org.powbot.mobile.script.ScriptManager
 class Pickpocket(script: FruitStallThiever) : Leaf<FruitStallThiever>(script, "Pickpocketing") {
     override fun execute() {
         if (Skills.level(Skill.Hitpoints) == 1) {
-            script.info("We have too little hitpoints to keep pickpocketing.")
+            script.info("We are too little hitpoints to keep pickpocketing.")
             return
         }
 
-        val pickpocketTarget = Npcs.stream().name("Man", "Woman").within(20).reachable().nearest()
+        val pickpocketTarget = Npcs.stream().name("Man", "Woman").within(20).nearest()
             .filtered { !it.inCombat() }.first()
         if (!pickpocketTarget.valid()) {
             script.info("Failed to find any target to pickpocket.")
