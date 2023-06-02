@@ -14,7 +14,7 @@ import org.powbot.mobile.script.ScriptManager
 /**
  *  The root node which is executed by the script
  */
-class IsLoggedIn(script: FruitStallThiever) : Branch<FruitStallThiever>(script, "Logged In?") {
+class IsLoggedIn(script: FruitStallThiever) : Branch<FruitStallThiever>(script, "Logged in?") {
     override val successComponent: TreeComponent<FruitStallThiever> = IsEnding(script)
     override val failedComponent: TreeComponent<FruitStallThiever> = LogIn(script)
 

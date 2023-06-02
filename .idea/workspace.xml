@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5682281-84c5-41f3-9832-9c349dbc3975" name="Changes" comment="Stream for reachable and dont continue if the npc is not in viewport.">
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/leaf/thieve/ThieveStall.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/leaf/thieve/ThieveStall.kt" afterDir="false" />
+    <list default="true" id="e5682281-84c5-41f3-9832-9c349dbc3975" name="Changes" comment="We do not need to track inventory count for thieving stalls.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +107,13 @@
       <option name="presentableId" value="LOCAL−00008" />
       <updated>1685722015310</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL−00009" summary="We do not need to track inventory count for thieving stalls.">
+      <created>1685722652682</created>
+      <option name="number" value="LOCAL−00009" />
+      <option name="presentableId" value="LOCAL−00009" />
+      <updated>1685722652682</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -128,6 +134,7 @@
     <MESSAGE value="Replace null assignment with Npc.Nil instead." />
     <MESSAGE value="Splitting traveling into more leafs and branches as well as better handling for chatting." />
     <MESSAGE value="Stream for reachable and dont continue if the npc is not in viewport." />
-    <option name="LAST_COMMIT_MESSAGE" value="Stream for reachable and dont continue if the npc is not in viewport." />
+    <MESSAGE value="We do not need to track inventory count for thieving stalls." />
+    <option name="LAST_COMMIT_MESSAGE" value="We do not need to track inventory count for thieving stalls." />
   </component>
 </project>
