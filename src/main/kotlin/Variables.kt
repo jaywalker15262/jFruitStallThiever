@@ -23,7 +23,7 @@ object Variables {
     var ploughXCoord = 0
     var timeSinceLastPlough: Long = 0
     var ploughWest = true
-    var plough: Npc? = null
+    var plough = Npc.Nil
     var ploughingTileMatrix = Constants.TILE_PLOUGHING.matrix()
 
     // World-hopping

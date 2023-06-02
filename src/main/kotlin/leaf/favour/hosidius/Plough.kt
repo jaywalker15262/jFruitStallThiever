@@ -12,12 +12,12 @@ import org.powbot.mobile.script.ScriptManager
 
 class Plough (script: FruitStallThiever) : Leaf<FruitStallThiever>(script, "Ploughing") {
     override fun execute() {
-        if (plough == null || !plough!!.valid()) {
+        if (!plough.valid()) {
             val players = Players.stream().notLocalPlayer().within(Constants.AREA_PLOUGHING)
             if (players.isEmpty()) {
                 plough = Npcs.stream().within(Constants.AREA_PLOUGHING).name("Plough").minByOrNull {
                     it.distanceTo(Players.local())
-                }
+                } ?: return
             } else {
                 val ploughs = Npcs.stream().within(Constants.AREA_PLOUGHING).name("Plough").sortedBy {
                     it.distanceTo(Players.local())
@@ -41,25 +41,25 @@ class Plough (script: FruitStallThiever) : Leaf<FruitStallThiever>(script, "Plou
                 }
             }
 
-            if (plough == null || !plough!!.valid()) {
+            if (!plough.valid()) {
                 script.info("We were unable to find any available nearby ploughs.")
                 return
             }
         }
 
-        var playerRelativePlacemenet = Tile(plough!!.x() + 2, plough!!.y(), 0)
-        if (plough!!.x() == 1764) {
-            playerRelativePlacemenet = Tile(plough!!.x() - 2, plough!!.y(), 0)
+        var playerRelativePlacemenet = Tile(plough.x() + 2, plough.y(), 0)
+        if (plough.x() == 1764) {
+            playerRelativePlacemenet = Tile(plough.x() - 2, plough.y(), 0)
             Variables.ploughWest = false
             Variables.timeSinceLastPlough = ScriptManager.getRuntime(true)
         }
-        else if (plough!!.x() == 1778) {
+        else if (plough.x() == 1778) {
             Variables.ploughWest = true
             Variables.timeSinceLastPlough = ScriptManager.getRuntime(true)
         }
 
         if (!Variables.ploughWest)
-            playerRelativePlacemenet = Tile(plough!!.x() - 2, plough!!.y(), 0)
+            playerRelativePlacemenet = Tile(plough.x() - 2, plough.y(), 0)
 
         if (Players.local().distanceTo(playerRelativePlacemenet).toInt() != 0) {
             if (!Movement.step(playerRelativePlacemenet)) {
@@ -74,28 +74,28 @@ class Plough (script: FruitStallThiever) : Leaf<FruitStallThiever>(script, "Plou
             }
         }
 
-        if (plough!!.actions().contains("Repair")) {
-            plough!!.bounds(-16, 16, -16, -16, -16, 16)
-            if (!plough!!.interact("Repair")) {
+        if (plough.actions().contains("Repair")) {
+            plough.bounds(-16, 16, -16, -16, -16, 16)
+            if (!plough.interact("Repair")) {
                 script.info("Failed to attempt to repair the plough.")
-                plough = null // Small chance cashed plough might be fked so for failsalfety reasons make us regrab it.
+                plough = Npc.Nil // Small chance cashed plough might be fked so for failsalfety reasons make us regrab it.
                 return
             }
 
-            if (!Condition.wait({ !plough!!.valid() }, 50, 200)) {
+            if (!Condition.wait({ !plough.valid() }, 50, 200)) {
                 script.info("Failed to find that we repaired the plough.")
-                plough = null // Small chance cashed plough might be fked so for failsalfety reasons make us regrab it.
+                plough = Npc.Nil // Small chance cashed plough might be fked so for failsalfety reasons make us regrab it.
                 return
             }
         }
         else {
             Variables.ploughXCoord = Players.local().x()
             if (ScriptManager.getRuntime(true) > Variables.timeSinceLastPlough) {
-                plough!!.bounds(-16, 16, -16, -16, -16, 16)
-                // plough!!.bounds(-20, 20, -82, -78, -16, 16)
-                if (!plough!!.interact("Push")) {
+                plough.bounds(-16, 16, -16, -16, -16, 16)
+                // plough.bounds(-20, 20, -82, -78, -16, 16)
+                if (!plough.interact("Push")) {
                     script.info("We were unable to push the plough.")
-                    plough = null // Small chance cashed plough might be fked so for failsalfety reasons make us regrab it.
+                    plough = Npc.Nil // Small chance cashed plough might be fked so for failsalfety reasons make us regrab it.
                     return
                 }
             }
