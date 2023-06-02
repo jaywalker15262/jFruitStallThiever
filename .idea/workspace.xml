@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e5682281-84c5-41f3-9832-9c349dbc3975" name="Changes" comment="Replace null assignment with Npc.Nil instead.">
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/leaf/traveling/TravelToKourend.kt" afterDir="false" />
+    <list default="true" id="e5682281-84c5-41f3-9832-9c349dbc3975" name="Changes" comment="Splitting traveling into more leafs and branches as well as better handling for chatting.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Constants.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Constants.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/branch/MovementBranches.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/branch/MovementBranches.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/leaf/traveling/TravelingToBakeryStall.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/leaf/traveling/TravelToBakeryStall.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/leaf/traveling/TravelingToFruitStall.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/leaf/traveling/TravelToFruitStall.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/leaf/traveling/TravelingToLumby.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/leaf/traveling/TravelToLumby.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/leaf/traveling/TravelingToPlough.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/leaf/traveling/TravelToPlough.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +89,13 @@
       <option name="presentableId" value="LOCAL−00005" />
       <updated>1685718803986</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL−00006" summary="Splitting traveling into more leafs and branches as well as better handling for chatting.">
+      <created>1685721373818</created>
+      <option name="number" value="LOCAL−00006" />
+      <option name="presentableId" value="LOCAL−00006" />
+      <updated>1685721373818</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -104,6 +103,7 @@
     <MESSAGE value="Make opening coin pouches its own leaf and branch." />
     <MESSAGE value="Removing redundant caching." />
     <MESSAGE value="Replace null assignment with Npc.Nil instead." />
-    <option name="LAST_COMMIT_MESSAGE" value="Replace null assignment with Npc.Nil instead." />
+    <MESSAGE value="Splitting traveling into more leafs and branches as well as better handling for chatting." />
+    <option name="LAST_COMMIT_MESSAGE" value="Splitting traveling into more leafs and branches as well as better handling for chatting." />
   </component>
 </project>
