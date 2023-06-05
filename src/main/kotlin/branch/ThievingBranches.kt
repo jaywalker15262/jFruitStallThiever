@@ -22,7 +22,7 @@ class ThievingCheck(script: FruitStallThiever) : Branch<FruitStallThiever>(scrip
     override val failedComponent: TreeComponent<FruitStallThiever> = PickpocketCheck(script)
 
     override fun validate(): Boolean {
-        return Variables.thievingArea < 2
+        return Variables.thievingArea == 0
     }
 }
 

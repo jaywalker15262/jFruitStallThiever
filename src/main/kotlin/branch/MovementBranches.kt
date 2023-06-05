@@ -29,7 +29,7 @@ class AtThievingArea(script: FruitStallThiever) : Branch<FruitStallThiever>(scri
 
         if (Variables.thievingArea == 0) {
             if (Variables.favour < 150)
-                return  Constants.AREA_PLOUGHING.contains(Players.local())
+                return Constants.AREA_PLOUGHING.contains(Players.local())
 
             return Constants.TILE_FRUIT_STALL.distanceTo(Players.local()).toInt() == 0
         }
