@@ -22,7 +22,7 @@ class ThievingCheck(script: FruitStallThiever) : Branch<FruitStallThiever>(scrip
     override val failedComponent: TreeComponent<FruitStallThiever> = PickpocketCheck(script)
 
     override fun validate(): Boolean {
-        return Variables.thievingArea == 0
+        return Variables.thievingArea < 2
     }
 }
 
@@ -31,7 +31,7 @@ class PloughCheck(script: FruitStallThiever) : Branch<FruitStallThiever>(script,
     override val failedComponent: TreeComponent<FruitStallThiever> = StallCheck(script)
 
     override fun validate(): Boolean {
-        return Variables.favour  < 150
+        return Variables.favour < 150
     }
 }
 

@@ -27,14 +27,15 @@ class AtThievingArea(script: FruitStallThiever) : Branch<FruitStallThiever>(scri
 
         Variables.favourPercent = Variables.favour.toFloat() / 10.0f
 
-        if (Variables.thievingArea == 0) {
+        if (Variables.thievingArea < 2) {
             if (Variables.favour < 150)
                 return Constants.AREA_PLOUGHING.contains(Players.local())
 
-            return Constants.TILE_FRUIT_STALL.distanceTo(Players.local()).toInt() == 0
-        }
-        else if (Variables.thievingArea == 1)
+            if (Variables.thievingArea == 0)
+                return Constants.TILE_FRUIT_STALL.distanceTo(Players.local()).toInt() == 0
+
             return Constants.TILE_ARDOUNGE.distanceTo(Players.local()).toInt() == 0
+        }
 
         return Constants.AREA_LUMBY.contains(Players.local())
     }
@@ -45,7 +46,7 @@ class TravelCheck(script: FruitStallThiever) : Branch<FruitStallThiever>(script,
     override val failedComponent: TreeComponent<FruitStallThiever> = TravelCheckFour(script)
 
     override fun validate(): Boolean {
-        return Variables.thievingArea == 0
+        return Variables.thievingArea == 0 || Variables.favour < 150
     }
 }
 
