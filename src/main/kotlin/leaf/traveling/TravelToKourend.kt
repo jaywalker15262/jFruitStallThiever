@@ -101,7 +101,7 @@ class TravelToKourend(script: FruitStallThiever) : Leaf<FruitStallThiever>(scrip
                     return
                 }
 
-                if (!Chat.completeChat(*arrayOf("That's great, can you take me there please?"))
+                if (!Chat.completeChat("That's great, can you take me there please?")
                     || !Condition.wait({ !Chat.chatting() },
                         Random.nextGaussian(270, 450, 300, 30.0), 17)) {
                     script.info("Failed to complete the conversation after talking to Veos.")
